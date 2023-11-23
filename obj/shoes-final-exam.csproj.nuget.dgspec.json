@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\shoes-final-exam\\shoes-final-exam.csproj": {}
+    "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\shoes-final-exam.csproj": {}
   },
   "projects": {
-    "D:\\shoes-final-exam\\shoes-final-exam.csproj": {
+    "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\shoes-final-exam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\shoes-final-exam\\shoes-final-exam.csproj",
+        "projectUniqueName": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\shoes-final-exam.csproj",
         "projectName": "shoes-final-exam",
-        "projectPath": "D:\\shoes-final-exam\\shoes-final-exam.csproj",
-        "packagesPath": "C:\\Users\\FShop\\.nuget\\packages\\",
-        "outputPath": "D:\\shoes-final-exam\\obj\\",
+        "projectPath": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\shoes-final-exam.csproj",
+        "packagesPath": "C:\\Users\\binbi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\FShop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\binbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[7.0.14, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.23, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -94,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
