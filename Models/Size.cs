@@ -2,12 +2,14 @@
 
 namespace shoes_final_exam.Models
 {
-    public class Category
+    public class Size
     {
         [Key]
         public int Id { get; set; }
-        public string? Name { get; set; }
+        [Required]
+        public float SizeNumber { get; set; }
+
         // Relationship 1-n with Product
-        public List<Product>? Products { get; set; }
+        public ICollection<Product>? Products { get; set; }
     }
 }

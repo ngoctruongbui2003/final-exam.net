@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Category>
+
+@foreach(var item in Model)
+{
+    <li class="filter-list"><input class="pixel-radio" type="checkbox" id="apple" name="brand">
+        <label for="apple">@item.Name<span>(@(item.Products?.Count() ?? 0))</span></label>
+    </li>
+}

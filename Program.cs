@@ -28,6 +28,7 @@ namespace shoes_final_exam
             builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(connectionString));
 
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 			var app = builder.Build();
 
@@ -56,6 +57,10 @@ namespace shoes_final_exam
                          pattern: "{controller=Home}/{action=Index}/{id?}"
                        );
             });
+
+            // Seeding Data
+            var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<MyDbContext>();
+            SeedData.SeedingData( context );
 
             app.Run();
         }

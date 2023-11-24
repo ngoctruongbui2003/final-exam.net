@@ -29,14 +29,27 @@ namespace shoes_final_exam.Repositories.Implement
 
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var foundCategory = await _context.Categories.SingleOrDefaultAsync(r => r.Id == id);
+
+                if (foundCategory == null)
+                {
+                    return false;
+                }
+
+                _context.Remove(foundCategory);
+                await _context.SaveChangesAsync();
+
+                return true;
+            } catch { return false; }
         }
 
         public async Task<List<Category>> GetAll()
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Categories.Include(c => c.Products).ToListAsync();
         }
 
         public Task<Category> GetById(int id)
@@ -44,7 +57,7 @@ namespace shoes_final_exam.Repositories.Implement
             throw new NotImplementedException();
         }
 
-        public void Update(int id)
+        public void Update(int id, Category category)
         {
             throw new NotImplementedException();
         }

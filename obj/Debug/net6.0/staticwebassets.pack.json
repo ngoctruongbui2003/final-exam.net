@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\shoes-final-exam.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\wwwroot\\Images\\1.jpg",
+      "PackagePath": "staticwebassets\\Images\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\wwwroot\\Images\\2.jpg",
+      "PackagePath": "staticwebassets\\Images\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\wwwroot\\Images\\3.jpg",
+      "PackagePath": "staticwebassets\\Images\\3.jpg"
+    },
+    {
       "Id": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\wwwroot\\LayoutAdmin\\.DS_Store",
       "PackagePath": "staticwebassets\\LayoutAdmin\\.DS_Store"
     },

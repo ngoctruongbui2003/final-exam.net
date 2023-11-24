@@ -8,6 +8,6 @@ namespace shoes_final_exam.Repositories
         Task<Category> GetById(int id);
         Task<bool> Add(Category category);
         Task<bool> Delete(int id);
-        void Update(int id);
+        void Update(int id, Category category);
     }
 }

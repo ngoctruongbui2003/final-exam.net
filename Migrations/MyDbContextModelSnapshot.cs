@@ -242,15 +242,9 @@ namespace shoes_final_exam.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Categories");
                 });
@@ -265,6 +259,9 @@ namespace shoes_final_exam.Migrations
 
                     b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -332,6 +329,9 @@ namespace shoes_final_exam.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsNew")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -342,17 +342,19 @@ namespace shoes_final_exam.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<float>("Size")
-                        .HasColumnType("real");
+                    b.Property<int>("SizeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("SizeId");
+
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("shoes_final_exam.Models.ProductImage", b =>
+            modelBuilder.Entity("shoes_final_exam.Models.Size", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -360,18 +362,12 @@ namespace shoes_final_exam.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UrlImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("SizeNumber")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImages");
+                    b.ToTable("Sizes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -425,13 +421,6 @@ namespace shoes_final_exam.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("shoes_final_exam.Models.Category", b =>
-                {
-                    b.HasOne("shoes_final_exam.Models.Product", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("ProductId");
-                });
-
             modelBuilder.Entity("shoes_final_exam.Models.Order", b =>
                 {
                     b.HasOne("shoes_final_exam.Models.AppUser", "AppUser")
@@ -450,7 +439,7 @@ namespace shoes_final_exam.Migrations
                         .IsRequired();
 
                     b.HasOne("shoes_final_exam.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("OrderDetails")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -463,28 +452,30 @@ namespace shoes_final_exam.Migrations
             modelBuilder.Entity("shoes_final_exam.Models.Product", b =>
                 {
                     b.HasOne("shoes_final_exam.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("shoes_final_exam.Models.ProductImage", b =>
-                {
-                    b.HasOne("shoes_final_exam.Models.Product", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
+                    b.HasOne("shoes_final_exam.Models.Size", "Size")
+                        .WithMany("Products")
+                        .HasForeignKey("SizeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("Category");
+
+                    b.Navigation("Size");
                 });
 
             modelBuilder.Entity("shoes_final_exam.Models.AppUser", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("shoes_final_exam.Models.Category", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("shoes_final_exam.Models.Order", b =>
@@ -494,9 +485,12 @@ namespace shoes_final_exam.Migrations
 
             modelBuilder.Entity("shoes_final_exam.Models.Product", b =>
                 {
-                    b.Navigation("Categories");
+                    b.Navigation("OrderDetails");
+                });
 
-                    b.Navigation("ProductImages");
+            modelBuilder.Entity("shoes_final_exam.Models.Size", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
