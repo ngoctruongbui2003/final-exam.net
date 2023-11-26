@@ -29,5 +29,10 @@ namespace shoes_final_exam.Models
 
         // Relationship 1-n with OrderDetail
         public ICollection<OrderDetail>? OrderDetails { get; set; }
+
+		public bool IsInStock()
+		{
+			return Quantity > 0 ? true : false;
+		}
 	}
 }

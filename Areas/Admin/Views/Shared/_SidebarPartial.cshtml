@@ -1,0 +1,34 @@
+﻿
+<div class="sidebar-filter" style="margin-top: 0px;">
+	<div class="top-filter-head">Lọc sản phẩm</div>
+	<div class="common-filter">
+		<div class="head">Thương hiệu</div>
+		<form action="#">
+			<ul>
+				@await Component.InvokeAsync("Category")
+			</ul>
+		</form>
+	</div>
+	<div class="common-filter">
+		<div class="head">Size</div>
+		<form action="#">
+			<ul>
+				@await Component.InvokeAsync("Size")
+			</ul>
+		</form>
+	</div>
+	<div class="common-filter">
+		<div class="head">Giá tiền</div>
+		<div class="price-range-area">
+			<div id="price-range"></div>
+			<div class="value-wrapper d-flex">
+				<div class="price">Price:</div>
+				<span>$</span>
+				<div id="lower-value"></div>
+				<div class="to">to</div>
+				<span>$</span>
+				<div id="upper-value"></div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 using shoes_final_exam.Data;
-using shoes_final_exam.Mail;
 using shoes_final_exam.Models;
+using shoes_final_exam.Models.AuthenticationModels;
+using shoes_final_exam.Models.MailModels;
 using shoes_final_exam.Repositories;
 using shoes_final_exam.Repositories.Implement;
 using System;
@@ -23,14 +24,51 @@ namespace shoes_final_exam
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddRazorPages();
+
             // Connect database
             var connectionString = builder.Configuration.GetConnectionString("MyDb");
             builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(connectionString));
 
-            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.Password.RequiredLength = 7;
+                opt.Password.RequireDigit = false;
+                opt.Password.RequireUppercase = false;
+
+                opt.User.RequireUniqueEmail = true;
+            })
+            .AddEntityFrameworkStores<MyDbContext>()
+			.AddDefaultTokenProviders();
+
+			builder.Services.Configure<DataProtectionTokenProviderOptions>
+            (opt => opt.TokenLifespan = TimeSpan.FromHours(2));
+
+			builder.Services.AddAutoMapper(typeof(Program));
+            builder.Services.ConfigureApplicationCookie(o => o.LoginPath = "/Account/Login");
+
+            builder.Services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsFactory>();
+
+			var emailConfig = builder.Configuration.GetSection("EmailConfiguration")
+                                                .Get<EmailConfiguration>();
+			builder.Services.AddSingleton(emailConfig);
+
+			builder.Services.AddScoped<shoes_final_exam.Repositories.IEmailSender, EmailSender>();
+
+			builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<ISizeRepository, SizeRepository>();
+
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromDays(30);
+                option.Cookie.IsEssential = true;
+            });
 
 			var app = builder.Build();
+
+            app.UseSession();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -44,19 +82,16 @@ namespace shoes_final_exam
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.MapControllerRoute(
+                name: "Areas",
+                pattern: "{area:exists}/{controller=Product}/{action=Index}/{id?}"
+            );
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                  name: "areas",
-                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}"
+            );
 
-                endpoints.MapControllerRoute(
-                         name: "default",
-                         pattern: "{controller=Home}/{action=Index}/{id?}"
-                       );
-            });
 
             // Seeding Data
             var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<MyDbContext>();

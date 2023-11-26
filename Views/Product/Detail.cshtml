@@ -1,0 +1,59 @@
+﻿@{
+	ViewData["Title"] = "Sản phẩm";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Product
+@using shoes_final_exam.Data
+
+
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-first">
+				<h1>Chi tiết sản phẩm</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Banner Area -->
+
+
+<div class="product_image_area" style="padding-bottom: 120px;">
+	<div class="container">
+		<div class="row s_product_inner">
+			<div class="col-lg-6">
+				<div class="s_Product_carousel">
+					<div class="single-prd-item">
+						<img class="img-fluid" src="~/Images/@Model.Image" alt="@Model.Name">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 offset-lg-1">
+				<div class="s_product_text">
+					<h3>@Model.Name</h3>
+					<h2>@Model.Price.ToString("N0")đ</h2>
+					<ul class="list">
+						<li><span style="display:inline-block;width:90px">Hãng</span> : @(Model.Category?.Name ?? "Không có hãng")</li>
+						<li><span style="display:inline-block;width:90px">Size</span> : @(Model.Size?.SizeNumber ?? 0)</li>
+						<li><span style="display:inline-block;width:90px">Trạng thái</span> : @(Model.IsNew ? DataExist.New : DataExist.Used)</li>
+						<li><span style="display:inline-block;padding:5px;" class="@(Model.IsInStock() ? "btn-success" : "btn-danger")">@(Model.IsInStock() ? DataExist.InStock : DataExist.OutOfStock)</span></li>
+					</ul>
+					<p>@Model.Description</p>
+					<div class="product_count">
+						<label for="qty">Số lượng:</label>
+						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+							class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+							class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+					</div>
+					<div class="card_area d-flex align-items-center">
+						<a class="primary-btn" asp-action="Add" asp-controller="Cart" asp-route-id="@Model.Id">Thêm vào giỏ hàng</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

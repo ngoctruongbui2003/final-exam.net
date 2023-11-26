@@ -1,0 +1,72 @@
+﻿@model shoes_final_exam.Models.AuthenticationModels.UserRegistrationModel
+
+
+<!-- Start Banner Area -->
+	<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Đăng ký</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Banner Area -->
+	<div class="row">
+		<div class="col-md-4">
+
+		</div>
+	</div>
+	<!--================Login Box Area =================-->
+	<section class="login_box_area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="login_box_img">
+						<img class="img-fluid" src="~/Layout/img/login.jpg" alt="">
+						<div class="hover">
+							<h4>New to our website?</h4>
+							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+							<a class="primary-btn" href="registration.html">Create an Account</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="login_form_inner">
+						<h3>Đăng ký tài khoản</h3>
+						<form asp-action="Register" class="row login_form" method="post" id="contactForm" novalidate="novalidate">
+							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							<div class="col-md-12 form-group">
+								<input asp-for="Email" class="form-control" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" />
+								<span asp-validation-for="Email" class="text-danger"></span>
+							</div>
+							<div class="col-md-12 form-group">
+								<input asp-for="FullName" class="form-control" id="fullName" name="fullName" placeholder="Họ và tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ và tên'" />
+								<span asp-validation-for="FullName" class="text-danger"></span>
+							</div>
+							<div class="col-md-12 form-group">
+								<input asp-for="Address" class="form-control" id="address" name="address" placeholder="Địa chỉ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ'" />
+								<span asp-validation-for="Address" class="text-danger"></span>
+							</div>
+							<div class="col-md-12 form-group">
+								<input asp-for="Birthday" type="date" class="form-control" id="birthday" name="birthday" placeholder="Ngày sinh" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ngày sinh'" />
+								<span asp-validation-for="Birthday" class="text-danger"></span>
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="password" asp-for="Password" class="form-control" id="password" name="password" placeholder="Mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mật khẩu'" />
+								<span asp-validation-for="Password" class="text-danger"></span>
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="password" asp-for="ConfirmPassword" class="form-control" id="confirmPassword" name="ConfirmPassword" placeholder="Xác nhận mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Xác nhận mật khẩu'" />
+								<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+							</div>
+							<div class="col-md-12 form-group">
+								<input style="background:#fd7e14" type="submit" value="Đăng ký" class="btn btn-primary" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Login Box Area =================-->

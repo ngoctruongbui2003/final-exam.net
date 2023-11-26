@@ -47,6 +47,22 @@ namespace shoes_final_exam.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("Roles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "375f43c2-8360-47f0-9c78-e6e2c606c686",
+                            ConcurrencyStamp = "eecd3b1b-20f2-4594-b8a5-235e0af8ede4",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        },
+                        new
+                        {
+                            Id = "9eaefe81-258e-45e5-96d1-2b170f02b5db",
+                            ConcurrencyStamp = "81077a37-3d37-4c5d-a883-34b77a4c5e07",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -6,20 +6,32 @@ namespace shoes_final_exam.Controllers
 {
     public class ProductController : Controller
     {
-		private readonly IProductRepository _productRepository;
+        private readonly IProductRepository _productRepository;
 
-		public ProductController(IProductRepository productRepository)
+        public ProductController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
 
-		}
+        }
 
-		public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
 
             var products = await _productRepository.GetAll();
 
-			return View(products);
+            return View(products);
+        }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            var productById = await _productRepository.GetById(id);
+
+            if (productById == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(productById);
         }
     }
 }

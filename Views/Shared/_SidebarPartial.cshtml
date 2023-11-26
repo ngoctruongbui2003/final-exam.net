@@ -5,7 +5,7 @@
 		<div class="head">Thương hiệu</div>
 		<form action="#">
 			<ul>
-				<vc:category></vc:category>
+				@await Component.InvokeAsync("shoes_final_exam.Components.Category")
 			</ul>
 		</form>
 	</div>
@@ -13,11 +13,7 @@
 		<div class="head">Size</div>
 		<form action="#">
 			<ul>
-				<li class="filter-list"><input class="pixel-radio" type="checkbox" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-				<li class="filter-list"><input class="pixel-radio" type="checkbox" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-				<li class="filter-list"><input class="pixel-radio" type="checkbox" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-				<li class="filter-list"><input class="pixel-radio" type="checkbox" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-				<li class="filter-list"><input class="pixel-radio" type="checkbox" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
+				@await Component.InvokeAsync("shoes_final_exam.Components.Size")
 			</ul>
 		</form>
 	</div>

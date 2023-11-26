@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using shoes_final_exam.Data.Configure;
 using shoes_final_exam.Models;
+using System.Reflection.Emit;
 
 namespace shoes_final_exam.Data
 {
@@ -26,9 +28,11 @@ namespace shoes_final_exam.Data
 				var tableName = entityType.GetTableName();
 				if (tableName.StartsWith("AspNet"))
 				{
-					entityType.SetTableName(tableName.Substring(6));
-				}
-			}
-		}
+                    entityType.SetTableName(tableName.Substring(6));
+                }
+            }
+
+            builder.ApplyConfiguration(new RoleConfiguration());
+        }
 	}
 }

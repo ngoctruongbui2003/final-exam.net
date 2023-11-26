@@ -1,0 +1,134 @@
+﻿@using shoes_final_exam.Models
+@{
+	ViewData["Title"] = "Giỏ hàng";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Cart
+
+<!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                <div class="col-first">
+                    <h1>Shopping Cart</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
+
+    <!--================Cart Area =================-->
+    <section class="cart_area">
+        <div class="container">
+            <div class="cart_inner">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sản phẩm</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Giá sản phẩm</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Tổng tiền sản phẩm</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(Model.CartItems.Count > 0)
+                            {
+                                foreach(var item in Model.CartItems)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="media">
+                                                <div class="d-flex">
+                                                    <img style="width:120px;height:auto;" src="~/Images/@item.ProductImage" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <p>@item.ProductName</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>@item.ProductSize</h5>
+                                        </td>
+                                        <td>
+                                            <h5>@item.ProductPrice.ToString("N0")đ</h5>
+                                        </td>
+                                        <td>
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="quantity-left-minus btn btn-number" data-type="minus" data-field="">
+                                                        <span class="ti-minus"></span>
+                                                    </button>
+                                                </span>
+                                                <input type="text" id="quantity" name="quantity" class="form-control input-number" value="@item.Quantity" min="1" max="100" readonly style="width: 10px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                                        <span class="ti-plus"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>@Model.CartItems.Where(c => c.ProductId == item.ProductId).Sum(x => x.Total).ToString("N0")đ</h5>
+                                        </td>
+                                        <td>
+                                            <a class="" href=""><i class="ti-close" style="color:black;"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="out_button_area">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <div class="checkout_btn_inner d-flex align-items-center">
+                                                <a class="gray_btn" asp-action="Index" asp-controller="Product">Tiếp tục mua hàng</a>
+                                                <a class="primary-btn" asp-action="Checkout" asp-controller="Cart">Thanh toán</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h5>@Model.GrandTotal.ToString("N0")đ</h5>
+                                        </td>
+                                    </tr>
+                                }
+                            } else
+                            {
+                                <td colspan="5"><h4>Giỏ hàng đang trống quá à!!</h4></td>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Cart Area =================-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var quantity = 0;
+
+            document.querySelector('.quantity-right-plus').addEventListener('click', function(e) {
+                e.preventDefault();
+
+                quantity = parseInt(document.getElementById('quantity').value);
+
+                // Kiểm tra nếu quantity không phải là một số hoặc undefined
+                if (!isNaN(quantity)) {
+                    document.getElementById('quantity').value = quantity + 1;
+                }
+            });
+
+            document.querySelector('.quantity-left-minus').addEventListener('click', function(e) {
+                e.preventDefault();
+
+                quantity = parseInt(document.getElementById('quantity').value);
+
+                // Kiểm tra nếu quantity là một số và lớn hơn 0
+                if (!isNaN(quantity) && quantity > 0) {
+                    document.getElementById('quantity').value = quantity - 1;
+                }
+            });
+        });
+
+    </script>

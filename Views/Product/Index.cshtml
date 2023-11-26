@@ -71,13 +71,13 @@
 									</div>
 									<div class="prd-bottom">
 
-										<a href="" class="social-info">
-											<span class="ti-bag"></span>
-											<p class="hover-text">add to bag</p>
+										<a asp-action="Add" asp-controller="Cart" asp-route-id="@item.Id" class="social-info">
+											<span class="ti-shopping-cart"></span>
+											<p class="hover-text">Giỏ hàng</p>
 										</a>
-										<a href="" class="social-info">
+										<a asp-action="Detail" asp-controller="Product" asp-route-id="@item.Id" class="social-info">
 											<span class="lnr lnr-move"></span>
-											<p class="hover-text">view more</p>
+											<p class="hover-text">Chi tiết</p>
 										</a>
 									</div>
 								</div>
