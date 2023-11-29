@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
+using shoes_final_exam.Models;
 using shoes_final_exam.Repositories;
 
 namespace shoes_final_exam.Areas.Admin.Controllers
@@ -7,37 +9,53 @@ namespace shoes_final_exam.Areas.Admin.Controllers
     
     public class CategoryController : Controller
     {
+        private readonly ILogger<CategoryController> _logger;
         private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryController(ICategoryRepository categoryRepository) 
+        public CategoryController(ICategoryRepository categoryRepository, ILogger<CategoryController> logger) 
         {
+            _logger = logger;
             _categoryRepository = categoryRepository;
         }
-        public async Task<IActionResult> Index()
-        {
-            var list = await _categoryRepository.GetAll();
-
-            return View(list);
-        }
-
-        public async Task<IActionResult> Create()
-        {
-            var list = await _categoryRepository.GetAll();
-
-            return View(list);
-        }
-
-        public async Task<IActionResult> Edit(int id)
+        public IActionResult Index()
         {
             return View();
         }
-        public async Task<IActionResult> Detail(int id)
+
+        [HttpGet]
+        public async Task<JsonResult> CategoryList()
         {
-            return View();
+            try
+            {
+                
+                var categories = await _categoryRepository.GetAllReturnMV();
+
+                return new JsonResult(Ok(categories));
+            } catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred in CategoryList.");
+                return new JsonResult(StatusCode(StatusCodes.Status500InternalServerError, ex.Message));
+            }
         }
-        public async Task<IActionResult> Delete(int id)
+
+        [HttpPost]
+        public async Task<JsonResult> Add([FromBody] string categoryName)
         {
-            return View();
+            try
+            {
+
+                var categories = await _categoryRepository.Add(new Category()
+                {
+                    Name = categoryName
+                });
+
+                return new JsonResult(Ok());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred in CategoryList.");
+                return new JsonResult(StatusCode(StatusCodes.Status500InternalServerError, ex.Message));
+            }
         }
-    }
+	}
 }

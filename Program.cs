@@ -21,10 +21,7 @@ namespace shoes_final_exam
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
-
-            builder.Services.AddRazorPages();
+           
 
             // Connect database
             var connectionString = builder.Configuration.GetConnectionString("MyDb");
@@ -66,7 +63,12 @@ namespace shoes_final_exam
                 option.Cookie.IsEssential = true;
             });
 
-			var app = builder.Build();
+            // Add services to the container.
+            builder.Services.AddControllersWithViews();
+
+            builder.Services.AddRazorPages();
+
+            var app = builder.Build();
 
             app.UseSession();
 

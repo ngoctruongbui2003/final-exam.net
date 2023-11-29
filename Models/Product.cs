@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace shoes_final_exam.Models
 {
@@ -30,9 +32,15 @@ namespace shoes_final_exam.Models
         // Relationship 1-n with OrderDetail
         public ICollection<OrderDetail>? OrderDetails { get; set; }
 
+		[NotMapped]
+		[FileExtensions]
+		public IFormFile ImageUpload { get; set; }
+
+
 		public bool IsInStock()
 		{
 			return Quantity > 0 ? true : false;
 		}
+
 	}
 }

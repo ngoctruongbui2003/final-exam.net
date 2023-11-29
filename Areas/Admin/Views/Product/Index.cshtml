@@ -42,9 +42,9 @@
                         <td>@item.Price</td>
                         <td>@item.Quantity</td>
                         <td>
-							<a class="btn btn-gradient-warning btn-fw" asp-action="Edit" asp-controller="Category" asp-route-id="@item.Id">Chỉnh sửa</a>
-							<a class="btn btn-gradient-success btn-fw" asp-action="Detail" asp-controller="Category" asp-route-id="@item.Id">Chi tiết</a>
-							<a class="btn btn-gradient-danger btn-fw" asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id">Xóa</a>
+							<a class="btn btn-gradient-warning btn-fw" asp-action="Edit" asp-controller="Product" asp-route-id="@item.Id">Chỉnh sửa</a>
+							<a class="btn btn-gradient-success btn-fw" asp-action="Detail" asp-controller="Product" asp-route-id="@item.Id">Chi tiết</a>
+							<a class="btn btn-gradient-danger btn-fw" asp-action="Delete" asp-controller="Product" asp-route-id="@item.Id">Xóa</a>
                         </td>
                     </tr>
                 }

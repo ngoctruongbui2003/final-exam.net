@@ -48,7 +48,7 @@ namespace shoes_final_exam.Repositories.Implement
 
 		public async Task<List<Product>> GetAll()
 		{
-			return await _context.Products.Include(p => p.Size).OrderByDescending(p => p.Id).ToListAsync();
+			return await _context.Products.Include(p => p.Category).Include(p => p.Size).OrderByDescending(p => p.Id).ToListAsync();
 		}
 
 		public async Task<Product> GetById(int id)

@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\Images\\3.jpg"
     },
     {
+      "Id": "D:\\C# winform\\final-exam.net\\wwwroot\\Images\\b28ed38c-f782-48e4-aea2-51a35a0892fe_pexels-aleksandar-pasaric-3342739.jpg",
+      "PackagePath": "staticwebassets\\Images\\b28ed38c-f782-48e4-aea2-51a35a0892fe_pexels-aleksandar-pasaric-3342739.jpg"
+    },
+    {
       "Id": "D:\\C# winform\\final-exam.net\\wwwroot\\LayoutAdmin\\assets\\css\\style.css",
       "PackagePath": "staticwebassets\\LayoutAdmin\\assets\\css\\style.css"
     },

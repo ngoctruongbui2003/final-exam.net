@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XVriCatkgdIyItHqbMpvS+2idGZbPJ4IVJX7naBoVj8=",
+  "Hash": "HEkjGBc4M+9RmBwtLEDeYYxK0pxPUEGKKKEToeYHUi4=",
   "Source": "shoes-final-exam",
   "BasePath": "_content/shoes-final-exam",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\3.jpg"
+    },
+    {
+      "Identity": "D:\\C# winform\\final-exam.net\\wwwroot\\Images\\b28ed38c-f782-48e4-aea2-51a35a0892fe_pexels-aleksandar-pasaric-3342739.jpg",
+      "SourceId": "shoes-final-exam",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C# winform\\final-exam.net\\wwwroot\\",
+      "BasePath": "_content/shoes-final-exam",
+      "RelativePath": "Images/b28ed38c-f782-48e4-aea2-51a35a0892fe_pexels-aleksandar-pasaric-3342739.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\b28ed38c-f782-48e4-aea2-51a35a0892fe_pexels-aleksandar-pasaric-3342739.jpg"
     },
     {
       "Identity": "D:\\C# winform\\final-exam.net\\wwwroot\\js\\site.js",

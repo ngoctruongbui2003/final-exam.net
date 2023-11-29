@@ -1,6 +1,4 @@
-﻿@model IEnumerable<Category>
-
-@{
+﻿@{
     ViewData["Title"] = "Danh sách hãng";
 	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
@@ -9,7 +7,7 @@
     <div class="card-body">
         <div class="card-body d-flex justify-content-between align-items-center">
             <h4 class="card-title">Danh sách các hãng có trong Shop</h4>
-			<a class="btn btn-gradient-success btn-fw" asp-action="Create" asp-controller="Category">Thêm mới</a>
+			<button class="btn btn-success" id="btnAdd"><i class="mdi mdi-plus" aria-hidden="true"></i> Thêm lớp</button>
         </div>
         
         <table class="table">
@@ -20,21 +18,122 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach(var item in Model)
-                {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.Name</td>
-                        <td>
-							<a class="btn btn-gradient-warning btn-fw" asp-action="Edit" asp-controller="Category" asp-route-id="@item.Id">Chỉnh sửa</a>
-							<a class="btn btn-gradient-success btn-fw" asp-action="Detail" asp-controller="Category" asp-route-id="@item.Id">Chi tiết</a>
-							<a class="btn btn-gradient-danger btn-fw" asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id">Xóa</a>
-                        </td>
-                    </tr>
-                }
+
+            <tbody id="tblCategoryList">
                 
             </tbody>
         </table>
     </div>
 </div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="modalCategory">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="panel panel-primary">
+          <div class="panel-heading" id="modelTitle" style="padding:10px;background-color:#b66dff"></div>
+          <div class="panel-body" style="padding: 10px">
+
+              <div class="form-group">
+                  <label>Tên hãng</label>
+                  <input type="text" class="form-control" id="categoryName" placeholder="Nhập tên hãng" />
+              </div>
+
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="btnSubmitAdd">Thêm</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function(){
+            LoadCategory();
+        })
+
+        $('#btnSubmitAdd').click(function(){
+            let name = $('#categoryName').val().trim();
+            if (name.length == 0) {
+                alert("Vui lòng nhập tên hãng");
+                return;
+            }
+
+            AddCategory(name);
+            $('#modalCategory').modal('hide');
+            
+        })
+
+        $('#btnAdd').click(function(){
+            $('#modelTitle').text("Thêm mới hãng");
+            $('#modalCategory').modal('show');
+            console.log("a");
+        })
+
+        async function AddCategory(categoryName) {
+            try {
+                const response = await fetch('/admin/category/Add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(categoryName)
+                });
+
+                if (response.ok) {
+                    alert("Thêm hãng thành công");
+                    LoadCategory();
+                } else {
+                    alert("Thêm hãng thất bại");
+                }
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        }
+
+        async function LoadCategory() {
+            try {
+                const response = await fetch('/admin/category/CategoryList', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const list = data.value;
+
+                    $('#tblCategoryList').empty();
+
+                    $.each(list, function(k, v) {
+                        
+                        let tr = "<tr id='" + v.id +"' >" ;
+                            tr += "<td class='col-sm-5'>" + v.id +"</td>"
+                            tr += "<td class='col-sm-5'>" + v.name +"</td>"
+                            tr += "<td class='col-sm-2 text-right'>"
+                            tr +=   '<button class="btn btn-xs btn-info" name="view"><i class="mdi mdi-eye" aria-hidden="true"></i></button>'
+                            tr +=   '<button class="btn btn-xs btn-warning" name="view"><i class="mdi mdi-border-color" aria-hidden="true"></i></button>'
+                            tr +=   '<button class="btn btn-xs btn-danger" name="view"><i class="mdi mdi-delete" aria-hidden="true"></i></button>'
+                            tr += "</td>"
+                            tr += "</tr>"
+
+                        $('#tblCategoryList').append(tr);
+                    })
+
+                    console.log(list);
+                } else {
+                    console.error(`Error: ${response.status} - ${response.statusText}`);
+                }
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        }
+
+
+    </script>
+}

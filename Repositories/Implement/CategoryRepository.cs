@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using shoes_final_exam.Data;
 using shoes_final_exam.Models;
+using shoes_final_exam.Models.ViewModels;
 
 namespace shoes_final_exam.Repositories.Implement
 {
@@ -51,6 +52,20 @@ namespace shoes_final_exam.Repositories.Implement
         {
             return await _context.Categories.Include(c => c.Products).ToListAsync();
         }
+
+        public async Task<List<CategoryVM>> GetAllReturnMV()
+        {
+            var list = await _context.Categories.Include(c => c.Products).ToListAsync();
+
+            var res = list.Select(c => new CategoryVM
+            {
+                Id = c.Id,
+                Name = c.Name,
+            }).ToList();
+
+            return res;
+        }
+
 
         public Task<Category> GetById(int id)
         {
