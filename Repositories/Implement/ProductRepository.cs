@@ -65,9 +65,34 @@ namespace shoes_final_exam.Repositories.Implement
 			}
 		}
 
-		public void Update(int id, Product product)
+
+		public async Task Update(Product product)
 		{
-			throw new NotImplementedException();
-		}
+            try
+            {
+                var foundProduct = await _context.Products.Include(p => p.Category).Include(p => p.Size).SingleOrDefaultAsync(r => r.Id == product.Id);
+                
+                if (foundProduct == null)
+                {
+                    return;
+                }
+
+                if (product.Image != null)
+                {
+                    foundProduct.Image = product.Image;
+                }
+
+                foundProduct.Name = product.Name;
+                foundProduct.Description = product.Description;
+                foundProduct.Price = product.Price;
+                foundProduct.Quantity = product.Quantity;
+                foundProduct.IsNew = product.IsNew;
+                foundProduct.CategoryId = product.CategoryId;
+                foundProduct.SizeId = product.SizeId;
+
+                await _context.SaveChangesAsync();
+            }
+            catch { }
+        }
 	}
 }

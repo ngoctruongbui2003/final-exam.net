@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "Danh sách hóa đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <h4 class="card-title">Danh sách các sản phẩm có trong Shop</h4>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Tên khách hàng</th>
+                    <th scope="col">Địa chỉ</th>
+                    <th scope="col">Ngày đặt hàng</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Tổng tiền</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td scope="col">@item.Name</td>
+                        <td scope="col">@item.Address</td>
+                        <td scope="col">@item.CreatedDate.ToString("MM/dd/yyyy")</td>
+                        <td scope="col">@item.OrderDetails.Sum(p => p.Quantity)</td>
+                        <td scope="col">@item.OrderDetails.Sum(p => p.Price).ToString("N0")đ</td>
+                        <td scope="col">
+                            @if (item.Status == 0)
+                            {
+                                <span style="display:inline-block;padding:5px;" class="btn-success">Đã đặt hàng</span>
+
+                            }
+                            else if (item.Status == -1)
+                            {
+                                <span style="display:inline-block;padding:5px;" class="btn-danger">Hủy đơn hàng</span>
+                            }
+                            else if (item.Status == 1)
+                            {
+                                <span style="display:inline-block;padding:5px;" class="btn-warning">Đang giao hàng</span>
+                            }
+                            else if (item.Status == 2)
+                            {
+                                <span style="display:inline-block;padding:5px;" class="btn-success">Đã giao</span>
+                            }
+                        <td scope="col">
+                            <a asp-action="CancleOrder" asp-controller="Order" asp-route-Id="@item.Id" class="btn btn-xs btn-danger" style="color:#fff;">Hủy đơn hàng</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

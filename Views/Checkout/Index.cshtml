@@ -1,4 +1,4 @@
-﻿@using shoes_final_exam.Models
+﻿    @using shoes_final_exam.Models
 @{
 	ViewData["Title"] = "Giỏ hàng";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,45 +22,35 @@
         <div class="container">
             <div class="billing_details">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <h3>Chi tiết đơn hàng</h3>
-                        <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="first" name="name">
-                                <span class="placeholder" data-placeholder="First name"></span>
-                            </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="last" name="name">
-                                <span class="placeholder" data-placeholder="Last name"></span>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="company" name="company" placeholder="Company name">
-                            </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="number" name="number">
-                                <span class="placeholder" data-placeholder="Phone number"></span>
-                            </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="email" name="compemailany">
-                                <span class="placeholder" data-placeholder="Email Address"></span>
-                            </div>
-                            
-                        </form>
-                    </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-9">
+                    <h3>Chi tiết đơn hàng</h3>
                         <div class="order_box">
                             <h2>Sản phẩm mua hàng của bạn</h2>
-                            <ul class="list">
-                                <li><a href="#">Sản phẩm <span>Giá</span></a></li>
-                            @foreach(var item in Model.CartItems)
-                            {
-                                <li><a href="#">@item.ProductName <span class="middle">x @item.Quantity</span> <span class="last">@item.ProductPrice.ToString("N0")đ</span></a></li>
-                            }
-                            </ul>
-                            <ul class="list list_2">
-                                <li><a href="#">Tổng cộng <span>@Model.GrandTotal.ToString("N0")đ</span></a></li>
-                            </ul>
-                            <a class="primary-btn" href="confirmation.html">Đặt hàng</a>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sản phẩm</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Giá</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach(var item in Model.CartItems)
+                                {
+                                    <tr>
+                                        <td><p>@item.ProductName</p></td>
+                                        <td><p>x @item.Quantity</p></td>
+                                        <td><p>@item.ProductPrice.ToString("N0")đ</p></td>
+                                    </tr>
+                                }
+                                    <tr>
+                                        <td><h5>Tổng cộng</h5></td>
+                                        <td></td>
+                                    <td><h5>@Model.GrandTotal.ToString("N0")đ</h5></td>
+                                    </tr>
+                            </tbody>
+                            </table>
+                            <a class="primary-btn" asp-action="Add" asp-controller="Checkout">Đặt hàng</a>
                         </div>
                     </div>
                 </div>

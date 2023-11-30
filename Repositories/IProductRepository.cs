@@ -8,6 +8,6 @@ namespace shoes_final_exam.Repositories
 		Task<Product> GetById(int id);
 		Task<bool> Add(Product product);
 		Task<bool> Delete(int id);
-		void Update(int id, Product product);
+		Task Update(Product product);
 	}
 }

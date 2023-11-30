@@ -34,8 +34,8 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Đăng nhập</h3>
-						<form asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]" class="row login_form" method="post" id="contactForm" novalidate="novalidate">
-							<div asp-validation-summary="All" class="text-danger"></div>
+						<form asp-action="Login" class="row login_form" method="post" id="contactForm" novalidate="novalidate">
+							
 							<div class="col-md-12 form-group">
 								<input asp-for="Email" class="form-control" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" />
 								<span asp-validation-for="Email" class="text-danger"></span>
@@ -45,7 +45,9 @@
 								<input type="password" asp-for="Password" class="form-control" id="password" name="password" placeholder="Mật khẩu" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mật khẩu'" />
 								<span asp-validation-for="Password" class="text-danger"></span>
 							</div>
-							<a asp-action="ForgotPassword" asp-controller="Account" style="color:#fd7e14">Quên mật khẩu</a>
+							<div asp-validation-summary="All" class="text-danger col-md-12"></div>
+							<br />
+							<a asp-action="ForgotPassword" asp-controller="Account" style="color:#fd7e14;padding:15px;">Quên mật khẩu</a>
 							<div class="col-md-12 form-group">
 								<input style="background:#fd7e14" type="submit" value="Đăng nhập" class="btn btn-primary" />
 							</div>

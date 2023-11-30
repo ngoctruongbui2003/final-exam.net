@@ -1,0 +1,73 @@
+﻿@using shoes_final_exam.Models
+@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Lịch sử đặt hàng</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Cart Area =================-->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tên khách hàng</th>
+                            <th scope="col">Địa chỉ</th>
+                            <th scope="col">Ngày đặt hàng</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td scope="col">@item.Name</td>
+                                <td scope="col">@item.Address</td>
+                                <td scope="col">@item.CreatedDate.ToString("MM/dd/yyyy")</td>
+                                <td scope="col">@item.OrderDetails.Sum(p => p.Quantity)</td>
+                                <td scope="col">@item.OrderDetails.Sum(p => p.Price).ToString("N0")đ</td>
+                                <td scope="col">
+                                    @if(item.Status == 0)
+                                    {
+                                        <span style="display:inline-block;padding:5px;" class="btn-success">Đã đặt hàng</span>
+
+                                    } else if(item.Status == -1)
+                                    {
+                                        <span style="display:inline-block;padding:5px;" class="btn-danger">Hủy đơn hàng</span>
+                                    } else if(item.Status == 1)
+                                    {
+                                        <span style="display:inline-block;padding:5px;" class="btn-warning">Đang giao hàng</span>
+                                    } else if(item.Status == 2)
+                                    {
+                                        <span style="display:inline-block;padding:5px;" class="btn-success">Đã giao</span>
+                                    }
+                                <td scope="col">
+                                    <a asp-action="CancleOrder" asp-controller="Order" asp-route-Id="@item.Id" class="btn btn-xs btn-danger" style="color:#fff;">Hủy đơn hàng</a>
+                                </td>
+                            </tr>
+                            
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Cart Area =================-->

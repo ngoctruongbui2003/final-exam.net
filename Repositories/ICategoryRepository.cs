@@ -10,6 +10,6 @@ namespace shoes_final_exam.Repositories
         Task<CategoryVM> GetByIdReturnMV(int id);
         Task<bool> Add(CategoryVM categoryVM);
         Task<bool> Delete(int id);
-        Task Update(int id, CategoryVM categoryVM);
+        Task Update(CategoryVM categoryVM);
     }
 }

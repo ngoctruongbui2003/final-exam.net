@@ -56,6 +56,7 @@ namespace shoes_final_exam
 			builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<ISizeRepository, SizeRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(option =>

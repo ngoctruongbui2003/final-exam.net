@@ -64,7 +64,7 @@ namespace shoes_final_exam.Repositories.Implement
 
             var res = list.Select(c => new CategoryVM
             {
-                Id = c.Id,
+                Id = c.Id.ToString(),
                 Name = c.Name,
             }).ToList();
 
@@ -78,7 +78,7 @@ namespace shoes_final_exam.Repositories.Implement
                 var foundedCategory = await _context.Categories.SingleOrDefaultAsync(r => r.Id == id);
                 return foundedCategory == null ? null : new CategoryVM()
                 {   
-                    Id = foundedCategory!.Id,
+                    Id = foundedCategory.Id.ToString(),
                     Name = foundedCategory.Name,
                 };
             }
@@ -87,11 +87,11 @@ namespace shoes_final_exam.Repositories.Implement
             }
         }
 
-        public async Task Update(int id, CategoryVM model)
+        public async Task Update(CategoryVM model)
         {
             try
             {
-                var foundedCategory = await _context.Categories.SingleOrDefaultAsync(r => r.Id == id);
+                var foundedCategory = await _context.Categories.SingleOrDefaultAsync(r => r.Id == Int32.Parse(model.Id));
 
                 if (foundedCategory == null)
                 {
@@ -102,7 +102,7 @@ namespace shoes_final_exam.Repositories.Implement
                 await _context.SaveChangesAsync();
             } catch(Exception ex)
             {
-                
+                throw new Exception(ex.Message);
             }
         }
     }

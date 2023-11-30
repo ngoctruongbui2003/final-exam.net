@@ -70,9 +70,51 @@ namespace shoes_final_exam.Areas.Admin.Controllers
             }
 
             await _productRepository.Add(product);
-            TempData["Success"] = "Thêm sản phẩm thành công";
 
             return RedirectToAction(nameof(ProductController.Index), "Product");
 		}
+
+        public async Task<IActionResult> Update(int id)
+        {
+            var product = await _productRepository.GetById(id);
+            ViewBag.Categories = new SelectList(await _categoryRepository.GetAll(), "Id", "Name");
+            ViewBag.Sizes = new SelectList(await _sizeRepository.GetAll(), "Id", "SizeNumber");
+            return View(product);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(Product product)
+        {
+            ViewBag.Categories = new SelectList(await _categoryRepository.GetAll(), "Id", "Name", product.CategoryId);
+            ViewBag.Sizes = new SelectList(await _sizeRepository.GetAll(), "Id", "SizeNumber", product.SizeId);
+
+            if (!ModelState.IsValid && product.Image != null)
+            {
+                return View();
+            }
+
+            if (product.ImageUpload != null)
+            {
+                string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
+                string imageName = Guid.NewGuid().ToString() + "_" + product.ImageUpload.FileName;
+                string filePath = Path.Combine(uploadDir, imageName);
+
+                FileStream fs = new FileStream(filePath, FileMode.Create);
+                await product.ImageUpload.CopyToAsync(fs);
+                fs.Close();
+                product.Image = imageName;
+            }
+
+            await _productRepository.Update(product);
+
+            return RedirectToAction(nameof(ProductController.Index), "Product");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _productRepository.Delete(id);
+            return RedirectToAction(nameof(ProductController.Index), "Product");
+        }
     }
 }

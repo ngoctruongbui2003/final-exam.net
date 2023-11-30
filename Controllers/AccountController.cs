@@ -63,15 +63,14 @@ namespace shoes_final_exam.Controllers
 
 		// --------------------------- LOGIN ---------------------------
 		[HttpGet]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login()
         {
-            ViewData["ReturnUrl"] = returnUrl == null ? "Home" : returnUrl;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(UserLoginModel userModel, string returnUrl = null)
+        public async Task<IActionResult> Login(UserLoginModel userModel)
         {
             if (!ModelState.IsValid)
             {
@@ -80,22 +79,13 @@ namespace shoes_final_exam.Controllers
             var result = await _signInManager.PasswordSignInAsync(userModel.Email, userModel.Password, true, false);
             if (result.Succeeded)
             {
-                return RedirectToLocal(returnUrl);
-            }
+				return RedirectToAction(nameof(HomeController.Index), "Home");
+			}
             else
             {
-                ModelState.AddModelError("", "Invalid UserName or Password");
+                ModelState.AddModelError("", "Không tồn tại tài khoản hoặc mật khẩu");
                 return View();
             }
-        }
-
-        private IActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-                return Redirect(returnUrl);
-            else
-                return RedirectToAction(nameof(HomeController.Index), "Home");
-
         }
 
 		[HttpPost]
@@ -132,8 +122,8 @@ namespace shoes_final_exam.Controllers
 		{
 			return View();
 		}
-
-		[HttpGet]
+        // --------------------------- RESET PASSWORD ---------------------------
+        [HttpGet]
 		public IActionResult ResetPassword(string token, string email)
 		{
 			var model = new ResetPasswordModel { Token = token, Email = email };
@@ -166,5 +156,40 @@ namespace shoes_final_exam.Controllers
 		{
 			return View();
 		}
-	}
+        // --------------------------- CHANGE PASSWORD ---------------------------
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ChangePasswordModel changePasswordModel)
+        {
+            if (!ModelState.IsValid)
+                return View(changePasswordModel);
+            var user = await _userManager.FindByEmailAsync(changePasswordModel.Email);
+            if (user == null)
+                View(changePasswordModel);
+            var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user, changePasswordModel.PasswordCurrent);
+
+            if (!isCurrentPasswordValid)
+            {
+                ModelState.AddModelError("PasswordCurrent", "Mật khẩu hiện tại không đúng.");
+                return View(changePasswordModel);
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetPassResult = await _userManager.ResetPasswordAsync(user, token, changePasswordModel.Password);
+            if (!resetPassResult.Succeeded)
+            {
+                foreach (var error in resetPassResult.Errors)
+                {
+                    ModelState.TryAddModelError(error.Code, error.Description);
+                }
+                return View();
+            }
+            return RedirectToAction(nameof(ResetPasswordConfirmation));
+        }
+    }
 }

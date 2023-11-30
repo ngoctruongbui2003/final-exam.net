@@ -51,15 +51,15 @@ namespace shoes_final_exam.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "375f43c2-8360-47f0-9c78-e6e2c606c686",
-                            ConcurrencyStamp = "eecd3b1b-20f2-4594-b8a5-235e0af8ede4",
+                            Id = "97990b53-4dce-4cdc-bc25-1d01c55c773a",
+                            ConcurrencyStamp = "f437d196-7eb5-4c1a-94c9-9efdbd68d720",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "9eaefe81-258e-45e5-96d1-2b170f02b5db",
-                            ConcurrencyStamp = "81077a37-3d37-4c5d-a883-34b77a4c5e07",
+                            Id = "0fe4006d-80fb-4b4b-94d7-f85c8424491a",
+                            ConcurrencyStamp = "f31b8bfb-c058-4792-9551-adec7c10b746",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -258,6 +258,7 @@ namespace shoes_final_exam.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -273,20 +274,22 @@ namespace shoes_final_exam.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<long>("TotalPrice")
-                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 

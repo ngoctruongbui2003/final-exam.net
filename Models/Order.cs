@@ -6,8 +6,8 @@ namespace shoes_final_exam.Models
 	{
 		[Key]
 		public int Id { get; set; }
-		public long TotalPrice { get; set; }
-		public int Quantity { get; set; }
+		public string Name { get; set; }
+		public string Address { get; set; }
 		public int Status { get; set; }
 		public DateTime CreatedDate { get; set; }
 
