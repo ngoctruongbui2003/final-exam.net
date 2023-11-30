@@ -1,11 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using shoes_final_exam.Models;
+using shoes_final_exam.Models.AuthenticationModels;
 
 namespace shoes_final_exam.Data
 {
     public class SeedData
     {
-        public static void SeedingData(MyDbContext _context)
+        public static async Task SeedingData(
+            MyDbContext _context,
+            IMapper _mapper,
+            UserManager<AppUser> _userManager
+            )
         {
             _context.Database.Migrate();
             if (!_context.Products.Any())
@@ -39,7 +46,7 @@ namespace shoes_final_exam.Data
                 };
 
 
-                _context.Products.AddRange(
+                 _context.Products.AddRange(
                     new Product
                     {
                         Image = "../images/1.jpg",
@@ -79,6 +86,28 @@ namespace shoes_final_exam.Data
                 );
 
                 _context.SaveChanges();
+            }
+
+            if (!_context.Users.Any())
+            {
+                UserRegistrationModel userModel = new UserRegistrationModel()
+                {
+                    FullName = "Admin",
+                    Address = "Admin o dau?",
+                    Birthday = DateTime.Now,
+                    Email = "ngoctruongbui2003@gmail.com",
+                    Password = "admin123@",
+                    ConfirmPassword = "admin123@"
+                };
+
+                var user = _mapper.Map<AppUser>(userModel);
+                var result = await _userManager.CreateAsync(user, userModel.Password);
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(user, "Admin");
+                }
+
+                
             }
         }
     }

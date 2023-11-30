@@ -7,9 +7,9 @@ namespace shoes_final_exam.Repositories
     {
         Task<List<Category>> GetAll();
         Task<List<CategoryVM>> GetAllReturnMV();
-        Task<Category> GetById(int id);
-        Task<bool> Add(Category category);
+        Task<CategoryVM> GetByIdReturnMV(int id);
+        Task<bool> Add(CategoryVM categoryVM);
         Task<bool> Delete(int id);
-        void Update(int id, Category category);
+        Task Update(int id, CategoryVM categoryVM);
     }
 }

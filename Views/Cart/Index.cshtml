@@ -59,15 +59,15 @@
                                         <td>
                                             <div class="input-group">
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="quantity-left-minus btn btn-number" data-type="minus" data-field="">
+                                                    <a asp-action="Decrease" asp-controller="Cart" asp-route-id="@item.ProductId" class="btn btn-number" style="background-color:#ccc;color:#000;">
                                                         <span class="ti-minus"></span>
-                                                    </button>
+                                                    </a>
                                                 </span>
                                                 <input type="text" id="quantity" name="quantity" class="form-control input-number" value="@item.Quantity" min="1" max="100" readonly style="width: 10px;">
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                                    <a asp-action="Increase" asp-controller="Cart" asp-route-id="@item.ProductId" class="btn btn-number" style="background-color:#ccc;color:#000;">
                                                         <span class="ti-plus"></span>
-                                                    </button>
+                                                    </a>
                                                 </span>
                                             </div>
                                         </td>
@@ -75,27 +75,29 @@
                                             <h5>@Model.CartItems.Where(c => c.ProductId == item.ProductId).Sum(x => x.Total).ToString("N0")đ</h5>
                                         </td>
                                         <td>
-                                            <a class="" href=""><i class="ti-close" style="color:black;"></i></a>
+                                            <a asp-action="Remove" asp-controller="Cart" asp-route-id="@item.ProductId"><i class="ti-close" style="color:black;"></i></a>
                                         </td>
                                     </tr>
-                                    <tr class="out_button_area">
+                                }
+                                <tr class="out_button_area">
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td>
                                             <div class="checkout_btn_inner d-flex align-items-center">
                                                 <a class="gray_btn" asp-action="Index" asp-controller="Product">Tiếp tục mua hàng</a>
-                                                <a class="primary-btn" asp-action="Checkout" asp-controller="Cart">Thanh toán</a>
+                                                <a class="primary-btn" asp-action="Index" asp-controller="Checkout">Thanh toán</a>
                                             </div>
                                         </td>
                                         <td>
                                             <h5>@Model.GrandTotal.ToString("N0")đ</h5>
                                         </td>
-                                    </tr>
-                                }
+                                </tr>
                             } else
                             {
-                                <td colspan="5"><h4>Giỏ hàng đang trống quá à!!</h4></td>
+                                <tr>
+                                    <td colspan="5"><h4>Giỏ hàng đang trống quá à!!</h4></td>
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -104,31 +106,3 @@
         </div>
     </section>
     <!--================End Cart Area =================-->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var quantity = 0;
-
-            document.querySelector('.quantity-right-plus').addEventListener('click', function(e) {
-                e.preventDefault();
-
-                quantity = parseInt(document.getElementById('quantity').value);
-
-                // Kiểm tra nếu quantity không phải là một số hoặc undefined
-                if (!isNaN(quantity)) {
-                    document.getElementById('quantity').value = quantity + 1;
-                }
-            });
-
-            document.querySelector('.quantity-left-minus').addEventListener('click', function(e) {
-                e.preventDefault();
-
-                quantity = parseInt(document.getElementById('quantity').value);
-
-                // Kiểm tra nếu quantity là một số và lớn hơn 0
-                if (!isNaN(quantity) && quantity > 0) {
-                    document.getElementById('quantity').value = quantity - 1;
-                }
-            });
-        });
-
-    </script>

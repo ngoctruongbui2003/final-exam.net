@@ -14,10 +14,15 @@ namespace shoes_final_exam.Repositories.Implement
             _context = context;
         }
 
-        public async Task<bool> Add(Category category)
+        public async Task<bool> Add(CategoryVM model)
         {
             try
             {
+                var category = new Category()
+                {
+                    Name = model.Name,
+                };
+
                 await _context.Categories.AddAsync(category);
                 await _context.SaveChangesAsync();
             }
@@ -66,15 +71,39 @@ namespace shoes_final_exam.Repositories.Implement
             return res;
         }
 
-
-        public Task<Category> GetById(int id)
+        public async Task<CategoryVM> GetByIdReturnMV(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var foundedCategory = await _context.Categories.SingleOrDefaultAsync(r => r.Id == id);
+                return foundedCategory == null ? null : new CategoryVM()
+                {   
+                    Id = foundedCategory!.Id,
+                    Name = foundedCategory.Name,
+                };
+            }
+            catch (Exception ex) {
+                return null; 
+            }
         }
 
-        public void Update(int id, Category category)
+        public async Task Update(int id, CategoryVM model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var foundedCategory = await _context.Categories.SingleOrDefaultAsync(r => r.Id == id);
+
+                if (foundedCategory == null)
+                {
+                    return;
+                }
+
+                foundedCategory.Name = model.Name;
+                await _context.SaveChangesAsync();
+            } catch(Exception ex)
+            {
+                
+            }
         }
     }
 }

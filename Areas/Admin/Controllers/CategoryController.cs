@@ -1,12 +1,14 @@
 ﻿using Azure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using shoes_final_exam.Models;
+using shoes_final_exam.Models.ViewModels;
 using shoes_final_exam.Repositories;
 
 namespace shoes_final_exam.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private readonly ILogger<CategoryController> _logger;
@@ -44,7 +46,7 @@ namespace shoes_final_exam.Areas.Admin.Controllers
             try
             {
 
-                var categories = await _categoryRepository.Add(new Category()
+                var categories = await _categoryRepository.Add(new CategoryVM()
                 {
                     Name = categoryName
                 });

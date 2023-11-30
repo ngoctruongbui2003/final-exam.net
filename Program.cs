@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -97,7 +98,9 @@ namespace shoes_final_exam
 
             // Seeding Data
             var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<MyDbContext>();
-            SeedData.SeedingData( context );
+            var mapper = app.Services.CreateScope().ServiceProvider.GetRequiredService<IMapper>();
+            var userManager = app.Services.CreateScope().ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+            SeedData.SeedingData( context, mapper, userManager);
 
             app.Run();
         }
