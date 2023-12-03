@@ -33,5 +33,10 @@ namespace shoes_final_exam.Controllers
 
             return View(productById);
         }
+
+        public string GetFilteredProducts()
+        {
+            return "";
+        }
     }
 }

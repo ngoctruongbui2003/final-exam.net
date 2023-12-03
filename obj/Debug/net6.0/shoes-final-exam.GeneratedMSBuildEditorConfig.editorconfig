@@ -9,177 +9,177 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = shoes_final_exam
 build_property.RootNamespace = shoes_final_exam
-build_property.ProjectDir = C:\Users\binbi\Desktop\NgocTruongBui\final-exam.net\
+build_property.ProjectDir = D:\C# winform\final-exam.net\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\binbi\Desktop\NgocTruongBui\final-exam.net
+build_property.MSBuildProjectDirectory = D:\C# winform\final-exam.net
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Category/Index.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Order/Index.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Order/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Product/Create.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Product/Index.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Product/Update.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Product/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Shared/Components/Footer/Default.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Shared/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Shared/Components/Navbar/Default.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Shared/Components/Navbar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2YmFyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Shared/Components/Sidebar/Default.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Shared/Components/Sidebar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2lkZWJhclxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Shared/Error.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Shared/_NotificationPartial.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Shared/_NotificationPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Shared/_SidebarPartial.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Shared/_SidebarPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9TaWRlYmFyUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/_ViewImports.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/_ViewStart.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Account/ChangePassword.cshtml]
+[D:/C\# winform/final-exam.net/Views/Account/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Account/ForgotPassword.cshtml]
+[D:/C\# winform/final-exam.net/Views/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Account/ForgotPasswordConfirmation.cshtml]
+[D:/C\# winform/final-exam.net/Views/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Account/Login.cshtml]
+[D:/C\# winform/final-exam.net/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Account/Register.cshtml]
+[D:/C\# winform/final-exam.net/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Account/ResetPassword.cshtml]
+[D:/C\# winform/final-exam.net/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Account/ResetPasswordConfirmation.cshtml]
+[D:/C\# winform/final-exam.net/Views/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Cart/Index.cshtml]
+[D:/C\# winform/final-exam.net/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Checkout/Confirmation.cshtml]
+[D:/C\# winform/final-exam.net/Views/Checkout/Confirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Checkout/Index.cshtml]
+[D:/C\# winform/final-exam.net/Views/Checkout/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Checkout/NoConfirmation.cshtml]
+[D:/C\# winform/final-exam.net/Views/Checkout/NoConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hlY2tvdXRcTm9Db25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Contact/Index.cshtml]
+[D:/C\# winform/final-exam.net/Views/Contact/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Home/Index.cshtml]
+[D:/C\# winform/final-exam.net/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Home/Privacy.cshtml]
+[D:/C\# winform/final-exam.net/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Order/History.cshtml]
+[D:/C\# winform/final-exam.net/Views/Order/History.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSGlzdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Product/Detail.cshtml]
+[D:/C\# winform/final-exam.net/Views/Product/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Product/Index.cshtml]
+[D:/C\# winform/final-exam.net/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Shared/Components/Category/Default.cshtml]
+[D:/C\# winform/final-exam.net/Views/Shared/Components/Category/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Shared/Components/Footer/Default.cshtml]
+[D:/C\# winform/final-exam.net/Views/Shared/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Shared/Components/Navbar/Default.cshtml]
+[D:/C\# winform/final-exam.net/Views/Shared/Components/Navbar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2YmFyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Shared/Components/Size/Default.cshtml]
+[D:/C\# winform/final-exam.net/Views/Shared/Components/Size/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2l6ZVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Shared/Error.cshtml]
+[D:/C\# winform/final-exam.net/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Shared/_SidebarPartial.cshtml]
+[D:/C\# winform/final-exam.net/Views/Shared/_SidebarPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlYmFyUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/C\# winform/final-exam.net/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/_ViewImports.cshtml]
+[D:/C\# winform/final-exam.net/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/_ViewStart.cshtml]
+[D:/C\# winform/final-exam.net/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
+[D:/C\# winform/final-exam.net/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-5advduum9f
 
-[C:/Users/binbi/Desktop/NgocTruongBui/final-exam.net/Views/Shared/_Layout.cshtml]
+[D:/C\# winform/final-exam.net/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-hhxqqsrztu

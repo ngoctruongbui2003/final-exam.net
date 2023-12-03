@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using shoes_final_exam.Models;
 using shoes_final_exam.Repositories;
 using shoes_final_exam.Repositories.Implement;
@@ -6,6 +7,7 @@ using System.Security.Claims;
 
 namespace shoes_final_exam.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;

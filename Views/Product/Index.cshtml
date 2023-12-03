@@ -94,3 +94,44 @@
 		</div>
 	</div>
 </div>
+@section scripts {
+	<script>
+    document.getElementById("btnFilter").addEventListener("click", function(){
+        var categoryList = getSelectedCheckboxes("category-filter-form")
+        var sizeList = getSelectedCheckboxes("size-filter-form")
+		console.log(categoryList);
+		console.log(sizeList);
+
+		var data = {
+			CategoryList: categoryList,
+			SizeList: sizeList
+		}
+
+		fecth("Product/GetFilteredProducts", {
+			method: "POST",
+			header: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		}).then(function(res) {
+			if (res.ok){
+				return res.text()
+			} else {
+				throw new Error();
+			}
+		}).catch(function(error) {
+			console.log("An error accured", error)
+		})
+    })
+
+    function getSelectedCheckboxes(formId) {
+        var checkboxes = $('#' + formId + ' input[type="checkbox"]:checked');
+        var values = []
+        checkboxes.each(function(){
+            values.push($(this).attr('val'))
+        })
+
+        return values;
+    }
+</script>
+}

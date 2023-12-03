@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\shoes-final-exam.csproj": {}
+    "D:\\C# winform\\final-exam.net\\shoes-final-exam.csproj": {}
   },
   "projects": {
-    "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\shoes-final-exam.csproj": {
+    "D:\\C# winform\\final-exam.net\\shoes-final-exam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\shoes-final-exam.csproj",
+        "projectUniqueName": "D:\\C# winform\\final-exam.net\\shoes-final-exam.csproj",
         "projectName": "shoes-final-exam",
-        "projectPath": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\shoes-final-exam.csproj",
-        "packagesPath": "C:\\Users\\binbi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\binbi\\Desktop\\NgocTruongBui\\final-exam.net\\obj\\",
+        "projectPath": "D:\\C# winform\\final-exam.net\\shoes-final-exam.csproj",
+        "packagesPath": "C:\\Users\\FShop\\.nuget\\packages\\",
+        "outputPath": "D:\\C# winform\\final-exam.net\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\binbi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FShop\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -110,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

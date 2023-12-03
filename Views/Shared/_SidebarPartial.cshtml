@@ -4,7 +4,7 @@
 	<div class="common-filter">
 		<div class="head">Thương hiệu</div>
 		<form action="#">
-			<ul>
+			<ul id="category-filter-form">
 				@await Component.InvokeAsync("shoes_final_exam.Components.Category")
 			</ul>
 		</form>
@@ -12,9 +12,53 @@
 	<div class="common-filter">
 		<div class="head">Size</div>
 		<form action="#">
-			<ul>
+			<ul id="size-filter-form">
 				@await Component.InvokeAsync("shoes_final_exam.Components.Size")
 			</ul>
 		</form>
 	</div>
+	<button id="btnFilter" class="btn btn-primary text-right" style="margin:10px;">Lọc</button>
 </div>
+
+@section scripts {
+	<script>
+    document.getElementById("btnFilter").addEventListener("click", function(){
+		alert("HELLO");
+        var categoryList = getSelectedCheckboxes("category-filter-form")
+        var sizeList = getSelectedCheckboxes("size-filter-form")
+		console.log(categoryList);
+		console.log(sizeList);
+
+		var data = {
+			CategoryList = categoryList,
+			SizeList = sizeList
+		}
+
+		fecth("Product/GetFillter/Products", {
+			method = "POST",
+			header = {
+				"Content-Type" = "application/json"
+			},
+			body: JSON.stringify(data)
+		}).then(function(res) {
+			if (res.ok){
+				return res.text()
+			} else {
+				throw new Error();
+			}
+		}).catch(function(error)) {
+			console.log("An error accured", error)
+		}
+    })
+
+    function getSelectedCheckboxes(formId) {
+        var chekboxes = $('#' + formId + ' input[type="checkbox]:checked');
+        var values = []
+        checkboxes.each(function(){
+            values.push($(this).attr('val'))
+        })
+
+        return values;
+    }
+</script>
+}

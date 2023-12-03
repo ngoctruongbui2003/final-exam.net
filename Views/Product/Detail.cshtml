@@ -41,16 +41,12 @@
 						<li><span style="display:inline-block;padding:5px;" class="@(Model.IsInStock() ? "btn-success" : "btn-danger")">@(Model.IsInStock() ? DataExist.InStock : DataExist.OutOfStock)</span></li>
 					</ul>
 					<p>@Model.Description</p>
-					<div class="product_count">
-						<label for="qty">Số lượng:</label>
-						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-							class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-							class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-					</div>
 					<div class="card_area d-flex align-items-center">
-						<a class="primary-btn" asp-action="Add" asp-controller="Cart" asp-route-id="@Model.Id">Thêm vào giỏ hàng</a>
+						@if(Model.IsInStock())
+						{
+							<a class="primary-btn" asp-action="Add" asp-controller="Cart" asp-route-id="@Model.Id" >Thêm vào giỏ hàng</a>
+						}
+						
 					</div>
 				</div>
 			</div>

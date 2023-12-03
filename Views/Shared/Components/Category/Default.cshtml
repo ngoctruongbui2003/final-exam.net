@@ -2,7 +2,7 @@
 
 @foreach(var item in Model)
 {
-    <li class="filter-list"><input class="pixel-radio" type="checkbox" id="apple" name="brand">
-        <label for="apple">@item.Name<span>(@(item.Products?.Count() ?? 0))</span></label>
+    <li class="filter-list"><input value="@item.Name" class="pixel-radio" id="@item.Name" type="checkbox" name="brand">
+        <label for="@item.Name">@item.Name<span>(@(item.Products?.Count() ?? 0))</span></label>
     </li>
 }
